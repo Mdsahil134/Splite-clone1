@@ -2,7 +2,7 @@ services:
   - type: web
     name: splitwise-backend
     runtime: python
-    buildCommand: pip install -r requirements-prod.txt && python manage.py migrate
+buildCommand: pip install -r requirements-prod.txt && python manage.py migrate && python manage.py collectstatic --noinput
     startCommand: gunicorn config.wsgi:application
     envVars:
       - key: SECRET_KEY
